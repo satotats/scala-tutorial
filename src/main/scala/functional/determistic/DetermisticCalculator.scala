@@ -1,5 +1,8 @@
 package functional.determistic
 
+/** 『関数型プログラミングの基礎』(立川察理, 2016) p.354-366 に記載の
+ * 「決定性計算機」の実装のscala版 */
+
 // scalaはinterface等が整備されているので
 // 独自に代数的データ構造やmatcherといった仕組みを実装する必要はない
 

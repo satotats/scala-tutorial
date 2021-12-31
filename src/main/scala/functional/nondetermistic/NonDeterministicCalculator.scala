@@ -1,5 +1,8 @@
 package functional.nondetermistic
 
+/** 『関数型プログラミングの基礎』(立川察理, 2016) p.354-366 に記載の
+ * 「非決定性計算機」の実装のscala版 */
+
 trait Expression
 
 case class Num(val value: Int) extends Expression
@@ -60,11 +63,11 @@ class Driver(exp: Expression) {
 @main def main() = {
   val exp = Add(Ambient(List(Num(1), Num(38), Num(9))), Add(Num(2), Num(3)))
   val driver = Driver(exp)
-  println(driver.calculate())
-  println(driver.calculate())
-  println(driver.calculate())
-  println(driver.calculate())
-  println(driver.calculate())
+
+  try
+    while (true) println(driver.calculate())
+  catch
+    case e: Exception => println(e)
 }
 
 extension[T] (list: List[T]) {
